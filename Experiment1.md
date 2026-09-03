@@ -617,13 +617,13 @@ The `<ul>` element creates an **unordered list**.
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EEE Books</title>
+    <title>Mech Books</title>
 </head>
 <body bgcolor="plum">
 
     <!-- Header Title -->
     <h1>
-        <font color="blue">Electrical and Electronics Engineering</font>
+        <font color="blue">Mechanical Engineering</font>
     </h1>
 
     <!-- Subheading -->
@@ -631,9 +631,9 @@ The `<ul>` element creates an **unordered list**.
 
     <!-- Book List -->
     <ul type="square">
-        <li>Concepts in Electric Circuits</li>
-        <li>Introduction to Electronic Engineering</li>
-        <li>Electrical Power</li>
+        <li>Thermodynamics</li>
+        <li>Fluid Mechanics</li>
+        <li>Theory of Machines</li>
     </ul>
 
 </body>
