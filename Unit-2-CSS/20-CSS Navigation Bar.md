@@ -6,49 +6,49 @@
 
 <p align="center">
   <b>📘 BCS353 – Web Designing Workshop</b><br>
-  Learn how to create and style navigation menus using HTML and CSS.
+  Learn how to create horizontal and vertical navigation menus using HTML and CSS.
 </p>
 
 ---
 
 ## 📌 1. What is a Navigation Bar?
 
-A **Navigation Bar (Navbar)** is a section of a webpage that contains links to important pages or sections.
+A **navigation bar (navbar)** is a section of a webpage that contains links to important pages or sections.
 
 ### Example
 
-```text id="p3a6m9"
-┌─────────────────────────────────────────────────┐
-│ 🏠 Home │ About │ Courses │ Services │ Contact │
-└─────────────────────────────────────────────────┘
+```text id="9ezh6p"
+┌─────────────────────────────────────────────────────┐
+│  🏠 Home   📚 Courses   ℹ️ About   📞 Contact       │
+└─────────────────────────────────────────────────────┘
 ```
 
 ### Simple Definition
 
-> **Navigation Bar = A collection of links that helps users move between pages or sections of a website.**
+> **Navigation Bar = A menu that helps users move from one webpage or section to another.**
 
 ---
 
-# 🎯 2. Why Do We Need a Navigation Bar?
+# 🎯 2. Why Do We Use Navigation Bars?
 
-A navigation bar helps users:
+Navigation bars help users:
 
 * 🏠 Go to the Home page
-* 👤 Learn About the website
-* 📚 View Courses
-* 🛠️ View Services
-* 📞 Contact the organization
-* 🔐 Login or Register
+* 📚 Find courses or services
+* 👤 Open an About page
+* 📞 Contact the website
+* 🔐 Login/Register
+* 🔗 Navigate between sections
 
-A good navigation bar makes a website easier to use.
+A good navigation bar makes a website **easy to use**.
 
 ---
 
-# 🧩 3. Basic Navigation Bar Structure
+# 🧱 3. Basic HTML Structure
 
 A navigation bar can be created using:
 
-```html id="yrv1jp"
+```html id="3t6s6n"
 <nav>
   <a href="#">Home</a>
   <a href="#">About</a>
@@ -57,85 +57,279 @@ A navigation bar can be created using:
 </nav>
 ```
 
-### Visual Structure
+### Important
 
-```text id="l9h9y6"
-<nav>
-   │
-   ├── Home
-   ├── About
-   ├── Courses
-   └── Contact
-```
+The `<nav>` element represents a section containing navigation links.
 
-The `<nav>` element semantically identifies a navigation section.
+The `<a>` element creates the actual links.
 
 ---
 
-# 🔹 4. Navigation Bar Using an Unordered List
+# 🎨 4. Basic CSS Navigation Bar
 
-A common structure is:
+```html id="x6rr5j"
+<!DOCTYPE html>
+<html>
 
-```html id="68u2ai"
-<nav>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Courses</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
+<head>
+
+  <style>
+
+    nav {
+      background-color: #333;
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Courses</a>
+    <a href="#">Contact</a>
+  </nav>
+
+</body>
+
+</html>
 ```
 
-By default, the list appears vertically with bullets.
+### Output
 
-```text id="5t4g8u"
-• Home
-• About
-• Courses
-• Contact
+```text id="46b83v"
+┌──────────────────────────────────────────────┐
+│ Home    About    Courses    Contact          │
+└──────────────────────────────────────────────┘
 ```
-
-CSS can change this into a horizontal navigation bar.
 
 ---
 
-# 🎨 5. Creating a Horizontal Navigation Bar
+# 🔹 5. Styling Navigation Links
 
-### HTML
+We can style navigation links using CSS properties such as:
 
-```html id="1z6w4p"
-<ul class="navbar">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">About</a></li>
-  <li><a href="#">Courses</a></li>
-  <li><a href="#">Contact</a></li>
-</ul>
+```css id="rxrjqp"
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 5px;
+}
+```
+
+### Common Properties
+
+| Property           | Purpose                   |
+| ------------------ | ------------------------- |
+| `color`            | Changes text color        |
+| `background-color` | Changes background        |
+| `padding`          | Adds space inside link    |
+| `margin`           | Adds space outside link   |
+| `text-decoration`  | Removes/changes underline |
+| `font-size`        | Changes text size         |
+| `display`          | Controls layout           |
+| `border`           | Adds border               |
+| `border-radius`    | Creates rounded corners   |
+
+---
+
+# 🟢 6. Horizontal Navigation Bar
+
+A horizontal navigation bar places links in a row.
+
+```text id="4is0t6"
+┌──────────────────────────────────────────┐
+│ Home │ About │ Courses │ Contact │ Login │
+└──────────────────────────────────────────┘
 ```
 
 ### CSS
 
-```css id="p0m2n7"
-.navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+```css id="x5x9c2"
+nav {
+  background-color: #333;
 }
 
-.navbar li {
+nav a {
   display: inline-block;
-}
-
-.navbar a {
-  display: block;
+  color: white;
   padding: 15px 20px;
   text-decoration: none;
 }
 ```
 
+### Why `inline-block`?
+
+It allows the links to:
+
+* Stay on the same line
+* Have controlled padding
+* Have width/height behavior similar to a block box
+
+---
+
+# 🟡 7. Hover Effect
+
+A navigation bar should usually provide feedback when the user moves the mouse over a link.
+
+Use:
+
+```css id="z5o6t3"
+nav a:hover {
+  background-color: #555;
+}
+```
+
+### Example
+
+Normal:
+
+```text id="kmk7jc"
+Home   About   Courses   Contact
+```
+
+Hovering over **Courses**:
+
+```text id="7u8yba"
+Home   About   [ Courses ]   Contact
+                    ↑
+                  Hover
+```
+
+---
+
+# 🔵 8. Active Navigation Link
+
+The `active` class can identify the current page.
+
+```html id="2w5m0b"
+<nav>
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="courses.html">Courses</a>
+  <a href="contact.html">Contact</a>
+</nav>
+```
+
+CSS:
+
+```css id="shy4i8"
+nav a.active {
+  background-color: #04AA6D;
+}
+```
+
 ### Result
 
-```text id="1y9f3k"
+```text id="6qlf3p"
+[ Home ]   About   Courses   Contact
+    ↑
+ Current page
+```
+
+---
+
+# 🧭 9. Vertical Navigation Bar
+
+A navigation bar can also be displayed vertically.
+
+```text id="50wyjj"
+┌─────────────────┐
+│ Home            │
+├─────────────────┤
+│ About           │
+├─────────────────┤
+│ Courses         │
+├─────────────────┤
+│ Contact         │
+└─────────────────┘
+```
+
+### CSS
+
+```css id="w7bh0r"
+nav a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+}
+```
+
+`display: block` makes each link start on a new line.
+
+---
+
+# 🆚 10. Horizontal vs Vertical Navigation
+
+| Type       | CSS Approach                       |
+| ---------- | ---------------------------------- |
+| Horizontal | `inline-block`, Flexbox, or Grid   |
+| Vertical   | `display: block` or Flexbox column |
+
+### Horizontal
+
+```css id="w9q4oh"
+nav {
+  display: flex;
+}
+```
+
+### Vertical
+
+```css id="4y20vv"
+nav {
+  display: flex;
+  flex-direction: column;
+}
+```
+
+---
+
+# 🟣 11. Navigation Bar Using Flexbox
+
+Flexbox is a modern way to create navigation bars.
+
+### HTML
+
+```html id="jv2cc9"
+<nav class="navbar">
+
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Courses</a>
+  <a href="#">Contact</a>
+
+</nav>
+```
+
+### CSS
+
+```css id="b6k3hz"
+.navbar {
+  display: flex;
+  background-color: #333;
+}
+
+.navbar a {
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+}
+```
+
+### Output
+
+```text id="n7qf8h"
 ┌─────────────────────────────────────────┐
 │ Home │ About │ Courses │ Contact        │
 └─────────────────────────────────────────┘
@@ -143,265 +337,265 @@ CSS can change this into a horizontal navigation bar.
 
 ---
 
-# 🧹 6. Removing List Bullets
+# 📏 12. Spacing with `gap`
 
-An unordered list normally displays bullets.
+Instead of using margins between flex items, we can use `gap`.
 
-```html id="p7m5je"
-<ul>
-  <li>Home</li>
-  <li>About</li>
-  <li>Contact</li>
-</ul>
-```
-
-Output:
-
-```text id="njyq3c"
-• Home
-• About
-• Contact
-```
-
-Remove the bullets using:
-
-```css id="h4r5u7"
-ul {
-  list-style-type: none;
-}
-```
-
-Now:
-
-```text id="s6b8m2"
-Home
-About
-Contact
-```
-
----
-
-# 📐 7. Removing Default Margin and Padding
-
-Browsers apply default spacing to lists.
-
-For a navigation bar, we commonly reset it:
-
-```css id="8j2s0h"
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-```
-
-### Why?
-
-It gives us better control over the navigation layout.
-
----
-
-# 🧭 8. Horizontal Navigation Bar Using `display`
-
-We can make list items appear horizontally.
-
-```css id="4m9p2a"
-li {
-  display: inline-block;
-}
-```
-
-Example:
-
-```text id="b7w4x1"
-Home    About    Courses    Contact
-```
-
-Another modern approach is Flexbox:
-
-```css id="6g2v8p"
-ul {
+```css id="0x3y5b"
+.navbar {
   display: flex;
-}
-```
-
-Flexbox provides easier control over spacing and alignment.
-
----
-
-# 🎨 9. Styling Navigation Links
-
-We can style links using:
-
-```css id="q1c7z9"
-.navbar a {
-  color: white;
-  background-color: #333;
-  text-decoration: none;
-  padding: 15px 20px;
-}
-```
-
-### Important Properties
-
-| Property           | Purpose                       |
-| ------------------ | ----------------------------- |
-| `color`            | Changes text color            |
-| `background-color` | Changes link background       |
-| `padding`          | Creates space inside the link |
-| `text-decoration`  | Removes underline             |
-| `font-size`        | Changes text size             |
-| `display`          | Controls layout               |
-
----
-
-# 🖱️ 10. Hover Effect
-
-A hover effect changes the appearance when the mouse moves over a navigation link.
-
-```css id="c9u1b8"
-.navbar a:hover {
-  background-color: #555;
+  gap: 20px;
 }
 ```
 
 ### Concept
 
-```text id="5d0r7x"
-Normal:
-
-┌─────────┐
-│  Home   │
-└─────────┘
-
-       ↓ Mouse over
-
-┌─────────┐
-│  Home   │  ← Different appearance
-└─────────┘
+```text id="g0hljv"
+Home    20px    About    20px    Courses
 ```
 
-### Why use hover?
-
-It gives users visual feedback that an item is clickable.
+`gap` adds consistent space between flex items.
 
 ---
 
-# 🟢 11. Active Navigation Link
+# 🎨 13. Button-Style Navigation Links
 
-The `:active` pseudo-class applies while the link is being activated, such as during a mouse click.
+Navigation links can look like buttons.
 
-```css id="3s6c4n"
-.navbar a:active {
-  background-color: green;
-}
-```
-
-For a navigation bar, a separate class is often used to indicate the **current page**:
-
-```html id="5h7p2x"
-<a href="index.html" class="active">Home</a>
-```
-
-```css id="w6k2r8"
-.navbar a.active {
-  background-color: #04AA6D;
-}
-```
-
----
-
-# 🔵 12. Vertical Navigation Bar
-
-A navigation bar can also be vertical.
-
-```css id="m8v5q2"
+```css id="8t6w2n"
 .navbar a {
-  display: block;
-  padding: 12px 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  background-color: #555;
 }
 ```
 
 ### Result
 
-```text id="g2n8w4"
-┌──────────────┐
-│ Home         │
-├──────────────┤
-│ About        │
-├──────────────┤
-│ Courses      │
-├──────────────┤
-│ Contact      │
-└──────────────┘
+```text id="j4gqna"
+┌────────┐  ┌────────┐  ┌────────┐
+│  Home  │  │ About  │  │ Contact│
+└────────┘  └────────┘  └────────┘
 ```
 
 ---
 
-# ↔️ 13. Horizontal vs Vertical Navbar
+# 🟠 14. Navigation Bar with Logo
 
-| Type       | Layout                         |
-| ---------- | ------------------------------ |
-| Horizontal | Links appear side by side      |
-| Vertical   | Links appear one below another |
+A common website navbar contains:
 
-### Horizontal
+* Logo
+* Website name
+* Navigation links
 
-```text id="o7w4s2"
-Home | About | Courses | Contact
+```text id="e2j7uh"
+┌────────────────────────────────────────────────────┐
+│ 🎓 MyWebsite   Home  Courses  About  Contact       │
+└────────────────────────────────────────────────────┘
 ```
 
-### Vertical
+### HTML
 
-```text id="z1q8v6"
+```html id="x93p5r"
+<nav class="navbar">
+
+  <div class="logo">
+    🎓 MyWebsite
+  </div>
+
+  <div class="links">
+    <a href="#">Home</a>
+    <a href="#">Courses</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+</nav>
+```
+
+### CSS
+
+```css id="7j2f1h"
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+}
+```
+
+---
+
+# 📱 15. Responsive Navigation Bar
+
+A navigation bar should also work on smaller screens.
+
+### Desktop
+
+```text id="y9t7cs"
+Home | About | Courses | Contact | Login
+```
+
+### Mobile
+
+```text id="f0b3wk"
 Home
 About
 Courses
 Contact
+Login
+```
+
+We can use a media query:
+
+```css id="h2v0e9"
+@media (max-width: 600px) {
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 0;
+  }
+
+}
 ```
 
 ---
 
-# 🧱 14. Complete Horizontal Navigation Bar
+# 🧩 16. Complete Navigation Bar Example
 
-### HTML
-
-```html id="0w9k3p"
+```html id="s7e3l4"
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Navigation Bar</title>
-  <link rel="stylesheet" href="style.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>CSS Navigation Bar</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .links {
+      display: flex;
+    }
+
+    .links a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 18px;
+    }
+
+    .links a:hover {
+      background-color: #555;
+    }
+
+    .links a.active {
+      background-color: #04AA6D;
+    }
+
+    @media (max-width: 600px) {
+
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .links {
+        flex-direction: column;
+      }
+
+      .links a {
+        text-align: center;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 <body>
 
   <nav class="navbar">
 
-    <ul>
+    <div class="logo">
+      🎓 MyWebsite
+    </div>
 
-      <li>
-        <a href="#" class="active">Home</a>
-      </li>
+    <div class="links">
 
-      <li>
-        <a href="#">About</a>
-      </li>
+      <a href="#" class="active">
+        Home
+      </a>
 
-      <li>
-        <a href="#">Courses</a>
-      </li>
+      <a href="#">
+        About
+      </a>
 
-      <li>
-        <a href="#">Services</a>
-      </li>
+      <a href="#">
+        Courses
+      </a>
 
-      <li>
-        <a href="#">Contact</a>
-      </li>
+      <a href="#">
+        Contact
+      </a>
 
-    </ul>
+    </div>
 
   </nav>
 
@@ -410,44 +604,176 @@ Contact
 </html>
 ```
 
-### CSS
+---
 
-```css id="5s8h1j"
-.navbar {
-  background-color: #333;
-}
+# 🔍 17. Important CSS Properties for Navigation
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
+| Property           | Purpose                                  |
+| ------------------ | ---------------------------------------- |
+| `display: flex`    | Places links in a flexible layout        |
+| `flex-direction`   | Controls row/column direction            |
+| `justify-content`  | Controls horizontal distribution         |
+| `align-items`      | Controls alignment                       |
+| `gap`              | Adds space between links                 |
+| `padding`          | Adds space inside links                  |
+| `background-color` | Sets navbar background                   |
+| `color`            | Sets link text color                     |
+| `text-decoration`  | Removes underline                        |
+| `:hover`           | Changes style when mouse moves over link |
+| `@media`           | Makes navbar responsive                  |
 
-.navbar a {
-  display: block;
-  color: white;
-  padding: 15px 20px;
-  text-decoration: none;
-}
+---
 
-.navbar a:hover {
-  background-color: #555;
-}
+# ⚠️ 18. Common Mistakes
 
-.navbar a.active {
-  background-color: #04AA6D;
-}
+### ❌ Mistake 1: Forgetting `href`
+
+```html id="f7yqz1"
+<a>Home</a>
 ```
 
-### Output
+Better:
 
-```text id="y5v1q8"
-┌─────────────────────────────────────────────────────┐
-│ Home │ About │ Courses │ Services │ Contact         │
-└─────────────────────────────────────────────────────┘
+```html id="y9q2a8"
+<a href="index.html">Home</a>
 ```
 
 ---
 
-#
+### ❌ Mistake 2: Default Underline
+
+Links normally have an underline.
+
+```css id="x2f0bc"
+text-decoration: none;
+```
+
+can remove it when desired.
+
+---
+
+### ❌ Mistake 3: No Hover Feedback
+
+A navigation bar should provide visual feedback.
+
+```css id="j3h4h5"
+nav a:hover {
+  background-color: #555;
+}
+```
+
+---
+
+### ❌ Mistake 4: Ignoring Mobile Screens
+
+A horizontal navbar may not fit on a small screen.
+
+Use a media query:
+
+```css id="m4qv1j"
+@media (max-width: 600px) {
+  .links {
+    flex-direction: column;
+  }
+}
+```
+
+---
+
+# 🧠 19. Navigation Bar vs Navigation Menu
+
+These terms are closely related.
+
+### Navigation Menu
+
+The collection of links:
+
+```text
+Home | About | Courses | Contact
+```
+
+### Navigation Bar
+
+The area containing the navigation menu:
+
+```text
+┌─────────────────────────────────────────┐
+│ Home | About | Courses | Contact        │
+└─────────────────────────────────────────┘
+```
+
+---
+
+# ❓ 20. Practice Questions
+
+### Q1. What is a navigation bar?
+
+### Q2. Which HTML element is used to represent a navigation section?
+
+### Q3. Which HTML element creates a navigation link?
+
+### Q4. How can you create a horizontal navigation bar using Flexbox?
+
+### Q5. What is the purpose of `:hover`?
+
+### Q6. What does `display: block` do to navigation links?
+
+### Q7. What is the purpose of `gap` in a Flexbox navigation bar?
+
+### Q8. How can a navigation bar be made responsive?
+
+### Q9. What is the purpose of the `active` class?
+
+### Q10. Create a navigation bar containing:
+
+* Home
+* About
+* Courses
+* Contact
+
+---
+
+# ⚡ 21. Quick Revision
+
+```text id="9gk7wq"
+                  NAVIGATION BAR
+                        │
+              ┌─────────┴─────────┐
+              ↓                   ↓
+             HTML                CSS
+              │                   │
+           <nav>              display:flex
+              │                   │
+           <a href>              gap
+              │                   │
+              └─────────┬─────────┘
+                        ↓
+                 Navigation Menu
+                        │
+          ┌─────────────┼─────────────┐
+          ↓             ↓             ↓
+        Normal        Hover         Active
+          │             │             │
+        Link         :hover        .active
+                        │
+                        ↓
+                 Responsive Design
+                        │
+                     @media
+```
+
+---
+
+## 📌 One-Line Definition
+
+> **A CSS navigation bar is a styled collection of navigation links that helps users move between different pages or sections of a website.**
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/BCS353-Web%20Designing%20Workshop-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+</p>
+
+<p align="center">
+  <b>🎓 BCS353 • Web Designing Workshop</b>
+</p>
